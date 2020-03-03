@@ -22,7 +22,7 @@
 
 
 import flask
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, jsonify
 import json
 app = Flask(__name__)
 app.debug = True
@@ -79,8 +79,16 @@ def hello():
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''
-    print(entity, request.get_json())
-    return "sample"
+    data = request.get_json()
+    
+    myWorld.set(entity, data)
+    print(entity, data, request.method)
+    print(myWorld.world())
+
+    if request.method == "PUT":
+        return jsonify(data)
+
+    return ""
 
 @app.route("/world", methods=['POST','GET'])    
 def world():
