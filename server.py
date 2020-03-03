@@ -79,7 +79,8 @@ def hello():
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''
-    return None
+    print(entity, request.get_json())
+    return "sample"
 
 @app.route("/world", methods=['POST','GET'])    
 def world():

@@ -82,9 +82,9 @@ function prepEntity(entity) {
 
 function clearFrame() {
     with(context) {
-	moveTo(0,0);
-	fillStyle = "#000";
-	fillRect(0,0,W,H);
+        moveTo(0,0);
+        fillStyle = "#000";
+        fillRect(0,0,W,H);
     }
 
 }
@@ -136,6 +136,7 @@ function getPosition(e) {
 
 function addEntity(entity, data) {
     world[entity] = data;
+    console.log(entity, data)
     drawNextFrame(); // (but should we?)
     //XXX: Send a XHTML Request that updates the entity you just  modified!
 
