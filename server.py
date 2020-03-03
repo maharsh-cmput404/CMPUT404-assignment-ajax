@@ -89,7 +89,7 @@ def update(entity):
     if request.method == "PUT":
         return jsonify(data)
 
-    return jsonify(success=True)
+    return ""
 
 @app.route("/world", methods=['POST','GET'])    
 def world():
