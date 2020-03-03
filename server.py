@@ -79,7 +79,8 @@ def hello():
 @app.route("/entity/<entity>", methods=['POST','PUT'])
 def update(entity):
     '''update the entities via this interface'''
-    data = request.get_json()
+    # Robert, https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request
+    data = request.get_json(force=True)
     
     myWorld.set(entity, data)
     print(entity, data, request.method)
@@ -88,7 +89,7 @@ def update(entity):
     if request.method == "PUT":
         return jsonify(data)
 
-    return ""
+    return jsonify(success=True)
 
 @app.route("/world", methods=['POST','GET'])    
 def world():
@@ -98,7 +99,7 @@ def world():
 @app.route("/entity/<entity>")    
 def get_entity(entity):
     '''This is the GET version of the entity interface, return a representation of the entity'''
-    return None
+    return jsonify(myWorld.get(entity))
 
 @app.route("/clear", methods=['POST','GET'])
 def clear():
