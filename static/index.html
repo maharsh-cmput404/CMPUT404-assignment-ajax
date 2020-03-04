@@ -57,8 +57,8 @@ function sendJSONXMLHTTPRequest(url, objects, callback) {
     };
     //XXX: POST to a URL
     //XXX: set the mimetype and the accept headers!
-    // Remember to use application/json !
     xhr.open("POST", url);
+    xhr.setRequestHeader("Accept", "application/json");
     xhr.overrideMimeType("application/json");
     xhr.send(JSON.stringify(objects));
 }
@@ -147,7 +147,6 @@ function getPosition(e) {
 
 function addEntity(entity, data) {
     world[entity] = data;
-    console.log(entity, data)
     drawNextFrame(); // (but should we?)
 
     sendJSONXMLHTTPRequest("/entity/"+entity, data, function() {})
@@ -276,7 +275,6 @@ function update() {
     //XXX: TODO Get the world from the webservice using a XMLHTTPRequest
     function callback(data) {
         world = data;
-        console.log(world)
         drawNextFrame();
     }
     sendJSONXMLHTTPRequest("/world", null, callback)
