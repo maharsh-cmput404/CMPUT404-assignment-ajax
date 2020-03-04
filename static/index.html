@@ -55,10 +55,10 @@ function sendJSONXMLHTTPRequest(url, objects, callback) {
             }
         }
     };
-    //XXX: POST to a URL
-    //XXX: set the mimetype and the accept headers!
     xhr.open("POST", url);
+    // encryptor, https://stackoverflow.com/questions/2824871/xmlhttprequest-responsetext-coming-for-accept-header-text-xml-but-server-erro
     xhr.setRequestHeader("Accept", "application/json");
+    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/overrideMimeType
     xhr.overrideMimeType("application/json");
     xhr.send(JSON.stringify(objects));
 }
