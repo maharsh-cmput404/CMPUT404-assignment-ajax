@@ -21,6 +21,8 @@ Robert, https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-
 
 encryptor, https://stackoverflow.com/questions/2824871/xmlhttprequest-responsetext-coming-for-accept-header-text-xml-but-server-erro
 
+user1693593, https://stackoverflow.com/questions/21890511/adding-a-random-color-to-a-generated-line
+
 ## Mozilla 
 https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/response
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-# Copyright 2013 Abram Hindle
+# Copyright 2020 Maharsh Patel, Abram Hindle
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -81,10 +81,7 @@ def update(entity):
     '''update the entities via this interface'''
     # Robert, https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request
     data = request.get_json(force=True)
-    
     myWorld.set(entity, data)
-    print(entity, data, request.method)
-    print(myWorld.world())
 
     if request.method == "PUT":
         return jsonify(data)
